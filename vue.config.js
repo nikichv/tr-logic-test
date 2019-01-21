@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: 'tr-logic-test-task',
+  publicPath: 'tr-logic-test',
 };
