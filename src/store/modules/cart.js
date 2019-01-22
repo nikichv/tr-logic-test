@@ -12,14 +12,6 @@ const REMOVE_ITEM = 'REMOVE_ITEM';
 const DECREASE_AMOUNT = 'DECREASE_AMOUNT';
 const CLEAR_CART = 'CLEAR_CART';
 
-/**
- * Save user cart in localStorage
- * @param arr
- */
-function saveCartInLocalStorage(arr) {
-  return window.localStorage.setItem('cart', JSON.stringify(arr));
-}
-
 const getters = {
 };
 
@@ -31,10 +23,8 @@ const actions = {
    * @param state
    * @param arr
    */
-  setItems({ commit, state }, arr) {
+  setItems({ commit }, arr) {
     commit(SET_ITEMS, arr);
-
-    saveCartInLocalStorage(state.items);
   },
 
   /**
@@ -43,10 +33,8 @@ const actions = {
    * @param state
    * @param id
    */
-  addItem({ commit, state }, id) {
+  addItem({ commit }, id) {
     commit(ADD_ITEM, id);
-
-    saveCartInLocalStorage(state.items);
   },
 
   /**
@@ -63,8 +51,6 @@ const actions = {
     } else {
       commit(INCREASE_AMOUNT, index);
     }
-
-    saveCartInLocalStorage(state.items);
   },
 
   /**
@@ -73,10 +59,8 @@ const actions = {
    * @param state
    * @param id
    */
-  removeItem({ commit, state }, id) {
+  removeItem({ commit }, id) {
     commit(REMOVE_ITEM, id);
-
-    saveCartInLocalStorage(state.items);
   },
 
   /**
@@ -91,8 +75,6 @@ const actions = {
     if (index > -1) {
       commit(DECREASE_AMOUNT, index);
     }
-
-    saveCartInLocalStorage(state.items);
   },
 
   /**
@@ -100,10 +82,8 @@ const actions = {
    * @param commit
    * @param state
    */
-  clearCart({ commit, state }) {
+  clearCart({ commit }) {
     commit(CLEAR_CART);
-
-    saveCartInLocalStorage(state.items);
   },
 };
 
